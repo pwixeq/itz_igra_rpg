@@ -86,6 +86,7 @@ def login_menu() -> bool:
 
 
 def main():
+    print('\n                                  ===========ПЛАМЯ ИМПЕРИИ==========')
     # если пользователь не вошёл, то выходим
     if not login_menu():
         return

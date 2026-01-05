@@ -135,8 +135,9 @@ def castle_gate(game):
         healing_location(game)
     else:
         intro('Вы обошли окрестности, но целебный водопад так и не нашли.')
-        intro('Герой с огорчением выдает:')
-        print('Тфу. Соврал этот старый')
+        if "help_king" in game.flags:
+            intro('Герой с огорчением выдает:')
+            print('   "Тьфу. Соврал этот старый"')
 
     final_location(game)
 

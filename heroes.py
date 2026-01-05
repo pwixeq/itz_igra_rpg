@@ -3,7 +3,7 @@ import random
 
 # базовый класс героя
 class Hero:
-    def init(self, name, hp, power, crit, dodge):
+    def __init__(self, name, hp, power, crit, dodge):
         # основные характеристики героя
         self.name = name
         self.hp = hp
@@ -87,9 +87,9 @@ class Hero:
         return random.randint(1, 100) <= chance
 
 class Knight(Hero):
-    def init(self):
+    def __init__(self):
         # создаём рыцаря с повышенным hp и защитой
-        super().init("Рыцарь", 250, 23, 10, 5)
+        super().__init__("Рыцарь", 250, 23, 10, 5)
         self.cooldowns["defense"] = 0
         self.passives = ["iron_skin", "counter_attack"]
 
@@ -107,9 +107,9 @@ class Knight(Hero):
         return True
 
 class Archer(Hero):
-    def init(self):
+    def __init__(self):
         # создаём лучника с высоким критом и уклонением
-        super().init("Лучник", 170, 27, 30, 25)
+        super().__init__("Лучник", 170, 27, 30, 25)
         self.cooldowns["snipe"] = 0
         self.passives = ["evasion", "bleed_arrows"]
 
@@ -127,9 +127,9 @@ class Archer(Hero):
         return True
 
 class Mage(Hero):
-    def init(self):
+    def __init__(self):
         # создаём мага с высоким уроном
-        super().init("Маг", 140, 30, 20, 10)
+        super().__init__("Маг", 140, 30, 20, 10)
         self.cooldowns["fire"] = 0
         self.passives = ["arcane_power", "mana_burn"]
 

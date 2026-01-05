@@ -35,20 +35,28 @@ class Equipment(Item):
 
 # генератор случайной экипировки
 def generate_equipment():
-    # выбираем случайный слот экипировки
+    import random
     slot = random.choice(["weapon", "armor"])
+    name = ""
+    power = 0
+    defense = 10  # базовая прочность брони
+    crit = 0
+    dodge = 0
 
-    # создаём имя предмета и рандомные характеристики
     if slot == "weapon":
         name = random.choice(["Короткий меч", "Старый клинок", "Секира"])
-        power = random.randint(5, 15)  # сила оружия
-        crit = random.randint(5, 15)  # шанс крита
+        power = random.randint(5, 15)
+        crit = random.randint(5, 15)
+        # броня остается 0, dodge остаётся 0
+        defense = 0
+        dodge = 0
     else:
         name = random.choice(["Лёгкая броня", "Кожаный доспех", "Пластинчатый доспех"])
-        defense = random.randint(5, 15)  # защита брони
-        dodge = random.randint(5, 15)  # уклонение
+        defense += random.randint(5, 15)  # прибавляем к базовой прочности 10
+        dodge = random.randint(5, 15)
+        power = 0
+        crit = 0
 
-    # создаем новый предмет экипировки
     eq = Equipment(name, slot, power, defense, crit, dodge)
     return eq
 

@@ -5,7 +5,7 @@ from items import *
 
 # основной класс игры
 class Game:
-    def init(self):
+    def __init__(self):
         # выбранный герой
         self.hero = None
 
